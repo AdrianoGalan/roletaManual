@@ -15,13 +15,10 @@ public class Blaze extends Thread {
 
 	private boolean primeiraBolaBranca = true;
 	private NumerosSorteados ns;
-	private boolean entradaManual;
+	
 
-	public Blaze(boolean entradaManual) {
-
+	public Blaze() {
 		this.ns = new NumerosSorteados();
-		this.entradaManual = entradaManual;
-
 	}
 
 	@Override
@@ -29,34 +26,14 @@ public class Blaze extends Thread {
 
 		try {
 
-			if (this.entradaManual) {
-
-				this.manual();
-
-			} else {
-
 				this.monitoraNumeros();
-			}
+		
 		} catch (Exception e) {
 
 		}
 
 	}
 
-	private void manual() {
-
-		int numeroSorteado = 0;
-
-		while (true) {
-
-			System.out.println("Digite um numero");
-
-			numeroSorteado = ler.nextInt();
-			
-			this.ns.monitoraSorteios(numeroSorteado);
-		}
-
-	}
 
 	private void monitoraNumeros() {
 
